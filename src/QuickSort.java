@@ -20,7 +20,7 @@ public class QuickSort {
         arr[j] = temp;
     }
 
-    int part(int arr[], int low, int high) {
+    int part(int[] arr, int low, int high) {
         int pivot = medianOfThree(arr, low, high); // Usa a mediana de três como pivô
         int i = low - 1;
 
@@ -35,7 +35,7 @@ public class QuickSort {
         return i + 1; // Retorna a posição do pivô
     }
 
-    void sort(int arr[], int low, int high) {
+    void sort(int[] arr, int low, int high) {
         if (low < high) {
             int pi = part(arr, low, high);
 
@@ -45,7 +45,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int arr[] = {10, 7, 8, 9, 1, 5, 3, 6, 4, 2};
+        int[] arr = {10, 7, 8, 9, 1, 5, 3, 6, 4, 2};
 
         QuickSort qs = new QuickSort();
         qs.sort(arr, 0, arr.length - 1);
