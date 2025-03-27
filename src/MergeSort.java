@@ -2,13 +2,13 @@ import java.util.Arrays;
 
 public class MergeSort {
     // Metodo principal do Merge Sort
-    void mergeSort(int[] arr, int n) {
+    void mergeSort(long[] arr, int n) {
         if (n < 2) // Se o array tem menos de 2 elementos, já está ordenado, termina a funçao.
             return;
 
         int mid = n/2; // Calcula e armazena o index do meio do array
-        int[] left = new int[mid]; // Cria um array para armazenar a primeira metade
-        int[] right = new int[n-mid]; // Cria um array para armazenar a segunda metade
+        long[] left = new long[mid]; // Cria um array para armazenar a primeira metade
+        long[] right = new long[n-mid]; // Cria um array para armazenar a segunda metade
 
         // Copia os elementos da primeira metade do array original para o array 'left'
         for (int i=0; i<mid; i++) {
@@ -26,7 +26,7 @@ public class MergeSort {
     }
 
     // Metodo responsável por mesclar os dois subarrays ordenados
-    void merge(int[] arr, int[] l, int[] r, int left, int right) {
+    void merge(long[] arr, long[] l, long[] r, int left, int right) {
         int i = 0, j = 0, k = 0; // Índices para percorrer os subarrays e o array original
 
         // Compara elementos de ambos os subarrays e os adiciona ao array original em ordem
@@ -50,7 +50,7 @@ public class MergeSort {
     // Metodo principal para executar o algoritmo
     public static void main(String[] args) {
         MergeSort ms = new MergeSort();
-        int[] arr = {10, 7, 8, 9, 1, 5, 3, 6, 4, 2};
+        long[] arr = {10, 7, 8, 9, 1, 5, 3, 6, 4, 2};
         ms.mergeSort(arr, arr.length);
         System.out.println("Sorted array: " + Arrays.toString(arr));
     }
