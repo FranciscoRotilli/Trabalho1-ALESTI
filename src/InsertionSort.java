@@ -1,39 +1,34 @@
 public class InsertionSort {
-    // Método que implementa o algoritmo de Insertion Sort
-    public static void insertionSort(int[] array) {
-        int n = array.length;
-        // Percorre o array a partir do segundo elemento
-        for (int i = 1; i < n; i++) {
-            int key = array[i]; // Elemento a ser inserido na parte ordenada
+    public static void main(String[] args) {
+        int[] entrada = {9, 8, 7, 6, 5, 4, 3, 2, 1}; // Lista desordenada
+
+        int cont = 0; // Contador de comparações
+        int trocas = 0; // Contador de trocas reais
+        int repeticoes = 0; // Contador de iterações externas
+
+        for (int i = 1; i < entrada.length; i++) {
+            int chave = entrada[i]; // Elemento a ser inserido na posição correta
             int j = i - 1;
 
-            // Move os elementos do array[0..i-1] que são maiores que key
-            // uma posição à frente de sua posição atual
-            while (j >= 0 && array[j] > key) {
-                array[j + 1] = array[j]; // Desloca o elemento para frente
-                j = j - 1;
+            // Move os elementos maiores que a chave uma posição à frente
+            while (j >= 0 && entrada[j] > chave) {
+                entrada[j + 1] = entrada[j];
+                j--;
+                cont++; // Contabiliza a comparação dentro do while
+                trocas++; // Contabiliza a movimentação de elementos
             }
-            // Insere 'key' na posição correta dentro da parte ordenada do array
-            array[j + 1] = key;
+            entrada[j + 1] = chave; // Insere o elemento na posição correta
+            repeticoes++; // Conta as iterações do laço externo
         }
-    }
 
-    public static void main(String[] args) {
-        int[] array = {12, 11, 13, 5, 6}; // Array de exemplo
-        System.out.println("Array antes da ordenação:");
-        printArray(array); // Exibe o array antes da ordenação
+        // Exibe estatísticas do algoritmo
+        System.out.println("\nOperações: " + cont);
+        System.out.println("Trocas: " + trocas);
+        System.out.println("Repetições: " + repeticoes);
 
-        insertionSort(array); // Chama o metodo de ordenação
-
-        System.out.println("Array após a ordenação:");
-        printArray(array); // Exibe o array após a ordenação
-    }
-
-    // Metodo auxiliar para imprimir o array
-    public static void printArray(int[] array) {
-        for (int num : array) {
-            System.out.print(num + " ");
+        // Exibe o array ordenado
+        for (int j : entrada) {
+            System.out.print(j + " ");
         }
-        System.out.println();
     }
 }

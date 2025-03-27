@@ -9,9 +9,11 @@ public class BubbleSort {
         int cont = 0; // Contador de operações
         int trocas = 0; // Contador de trocas de posição
         int repeticoes = 0; // Contador de iterações externas
+        boolean trocou; // Variável para verificar se houve trocas na iteração
 
-        // Enquanto a lista não estiver ordenada, continua ordenando
-        while (!isOrdered(lista)) {
+        // Loop externo do Bubble Sort
+        do {
+            trocou = false; // Inicializa como falso antes de cada iteração
             for (int i = 0; i < lista.length - 1; i++) {
                 cont++; // Incrementa o número de comparações
                 if (lista[i] > lista[i+1]) { // Se o elemento atual for maior que o próximo, troca
@@ -19,10 +21,11 @@ public class BubbleSort {
                     lista[i+1] = lista[i];
                     lista[i] = temp;
                     trocas++; // Conta a troca realizada
+                    trocou = true; // Marca que houve trocas
                 }
             }
             repeticoes++; // Conta quantas vezes o loop externo foi executado
-        }
+        } while (trocou); // Continua enquanto houver trocas
 
         // Exibe o array ordenado
         for (int j : lista) {
@@ -33,15 +36,5 @@ public class BubbleSort {
         System.out.println("\nOperações: " + cont);
         System.out.println("Trocas: " + trocas);
         System.out.println("Repetições: " + repeticoes);
-    }
-
-    // Metodo auxiliar para verificar se a lista está ordenada
-    public static boolean isOrdered(int[] lista) {
-        for (int i = 0; i < lista.length - 1; i++) {
-            if (lista[i] > lista[i+1]) { // Se encontrar um elemento maior que o próximo, não está ordenado
-                return false;
-            }
-        }
-        return true; // Se não encontrou elementos fora de ordem, a lista está ordenada
     }
 }

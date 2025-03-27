@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class QuickSort {
     // Metodo para calcular a mediana de três valores e usá-la como pivô
-    int medianOfThree(int[] arr, int low, int high) {
+    long medianOfThree(long[] arr, int low, int high) {
         int mid = low + (high - low) / 2;
 
         // Ordena manualmente os três valores para encontrar a mediana
@@ -16,15 +16,15 @@ public class QuickSort {
     }
 
     // Metodo para trocar elementos em um array
-    void swap(int[] arr, int i, int j) {
-        int temp = arr[i]; // Armazena temporariamente o valor na posição 'i'
+    void swap(long[] arr, int i, int j) {
+        long temp = arr[i]; // Armazena temporariamente o valor na posição 'i'
         arr[i] = arr[j]; // Move o valor na posição 'j' para 'i'
         arr[j] = temp; // Move o valor armazenado temporariamente para 'j'
     }
 
     // Metodo que particiona o array em relação ao pivô
-    int part(int[] arr, int low, int high) {
-        int pivot = medianOfThree(arr, low, high); // Determina o pivô usando a mediana de três
+    int part(long[] arr, int low, int high) {
+        long pivot = medianOfThree(arr, low, high); // Determina o pivô usando a mediana de três
         int i = low - 1; // Inicializa o índice para elementos menores que o pivô
 
         // Percorre o array e organiza os elementos em relação ao pivô
@@ -39,7 +39,7 @@ public class QuickSort {
     }
 
     // Metodo principal do QuickSort que realiza a ordenação recursiva
-    void sort(int[] arr, int low, int high) {
+    void sort(long[] arr, int low, int high) {
         if (low < high) { // Verifica se há mais de um elemento para ordenar
             int pi = part(arr, low, high); // Particiona o array e obtém a posição do pivô
 
@@ -50,7 +50,7 @@ public class QuickSort {
 
     // Metodo principal para executar o algoritmo
     public static void main(String[] args) {
-        int[] arr = {10, 7, 8, 9, 1, 5, 3, 6, 4, 2};
+        long[] arr = {10, 7, 8, 9, 1, 5, 3, 6, 4, 2};
         QuickSort qs = new QuickSort();
         qs.sort(arr, 0, arr.length - 1);
         System.out.println("Sorted array: " + Arrays.toString(arr));
