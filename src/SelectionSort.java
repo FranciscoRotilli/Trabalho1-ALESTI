@@ -1,10 +1,7 @@
 public class SelectionSort {
-    public static void main(String[] args) {
-        int[] entrada = {9, 8, 7, 6, 5, 4, 3, 2, 1}; // Lista desordenada
-
+    public static void selectionSort(int[] entrada) {
         int cont = 0; // Contador de comparações
-        int trocas = 0; // Contador de trocas reais
-        int repeticoes = 0; // Contador de iterações externas
+        int trocas = 0;
 
         for (int i = 0; i < entrada.length - 1; i++) {
             int menor = i; // Assume que o menor elemento está na posição atual
@@ -20,20 +17,18 @@ public class SelectionSort {
                 int aux = entrada[menor];
                 entrada[menor] = entrada[i];
                 entrada[i] = aux;
-                trocas++; // Incrementa apenas quando ocorre uma troca real
+                trocas++;
             }
-
-            repeticoes++; // Conta a quantidade de iterações do loop externo
         }
-
-        // Exibe estatísticas do algoritmo
-        System.out.println("\nOperações: " + cont);
-        System.out.println("Trocas: " + trocas);
-        System.out.println("Repetições: " + repeticoes);
 
         // Exibe o array ordenado
-        for (int j : entrada) {
-            System.out.print(j + " ");
-        }
+//        for (int j : entrada) {
+//            System.out.print(j + " ");
+//        }
+
+        // Exibe estatísticas do algoritmo
+        System.out.println("Tamanho do Array: " + entrada.length);
+        System.out.println("Operações: " + cont);
+        System.out.println("Trocas: " + trocas);
     }
 }
